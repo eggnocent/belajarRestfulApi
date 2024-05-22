@@ -1,4 +1,6 @@
-const addNoteHandler = require('./handler');
+// routes.js
+
+const { addNoteHandler, getAllNotesHandler, getNoteByIdHandler } = require('./handler');
 
 const routes = [
     {
@@ -9,8 +11,18 @@ const routes = [
     {
         method: 'GET',
         path: '/notes',
-        handler: () => {}, // Handler kosong untuk sementara waktu
+        handler: getAllNotesHandler,
     },
+    {
+        method: 'GET',
+        path: '/notes/{id}',
+        handler: getNoteByIdHandler,
+    },
+    {
+        method: 'PUT',
+        path: '/notes/{id}',
+        handler: () => {},
+      },
 ];
 
 module.exports = routes;
